@@ -11,5 +11,11 @@ namespace Sample.CI.Test
         {
             Assert.IsTrue(true);
         }
+
+        [TestMethod]
+        public void Novo_teste_passando()
+        {
+            Assert.IsTrue(true);
+        }
     }
 }
