@@ -1,7 +1,0 @@
-C:\Users\Isaac Garcia\Documents\GitHub\Gerenciador-De-Pedidos\Sample.CI.Test\bin\Debug\Sample.CI.Test.dll
-C:\Users\Isaac Garcia\Documents\GitHub\Gerenciador-De-Pedidos\Sample.CI.Test\bin\Debug\Sample.CI.Test.pdb
-C:\Users\Isaac Garcia\Documents\GitHub\Gerenciador-De-Pedidos\Sample.CI.Test\bin\Debug\nunit.framework.dll
-C:\Users\Isaac Garcia\Documents\GitHub\Gerenciador-De-Pedidos\Sample.CI.Test\bin\Debug\nunit.framework.xml
-C:\Users\Isaac Garcia\Documents\GitHub\Gerenciador-De-Pedidos\Sample.CI.Test\obj\Debug\Sample.CI.Test.csprojResolveAssemblyReference.cache
-C:\Users\Isaac Garcia\Documents\GitHub\Gerenciador-De-Pedidos\Sample.CI.Test\obj\Debug\Sample.CI.Test.dll
-C:\Users\Isaac Garcia\Documents\GitHub\Gerenciador-De-Pedidos\Sample.CI.Test\obj\Debug\Sample.CI.Test.pdb
