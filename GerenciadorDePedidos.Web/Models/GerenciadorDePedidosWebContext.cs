@@ -19,7 +19,7 @@ namespace GerenciadorDePedidos.Web.Models
         {
         }
 
-        public System.Data.Entity.DbSet<GerenciadorDePedidos.Web.Models.Pedido> Pedidoes { get; set; }
-    
+        public DbSet<Pedido> Pedidoes { get; set; }
+        public DbSet<Usuario> Usuarios { get; set; }
     }
 }
