@@ -11,8 +11,20 @@
     @Html.LabelFor(x => x.Nome, "Nome:");
     @Html.TextBoxFor(x => x.Nome);
     
-    @Html.LabelFor(x => x.Sexo, "Sexo:");
-    //@Html.RadioButtonFor(x => x.Sexo, GerenciadorDePedidos.Web.Models.Sexo.Masculino);
+    @Html.LabelFor(x => x.Sexo, "Masculino:");
+    @Html.RadioButtonFor(x => x.Sexo, GerenciadorDePedidos.Web.Models.Sexo.Masculino);
+    @Html.LabelFor(x => x.Sexo, "Feminino:");
+    @Html.RadioButtonFor(x => x.Sexo, GerenciadorDePedidos.Web.Models.Sexo.Feminino);
+ 
+    @Html.LabelFor(x => x.Endereco, "Endereço:");
+    @Html.TextBoxFor(x => x.Endereco);
+ 
+    @Html.LabelFor(x => x.Login, "Login:");
+    @Html.TextBoxFor(x => x.Login);
     
+    @Html.LabelFor(x => x.Senha, "Senha:")
+    @Html.TextBoxFor(x => x.Senha);
+    
+    <input type ="submit" value"Salvar" />   
     
 }
