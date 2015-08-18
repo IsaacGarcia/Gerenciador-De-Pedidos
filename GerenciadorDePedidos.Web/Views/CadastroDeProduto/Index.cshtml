@@ -1,0 +1,50 @@
+﻿@model GerenciadorDePedidos.Web.Models.Produto
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm("Salvar", "CadastroDeProduto"))
+{
+    <div class="row">
+        <div class="span4">
+            @Html.LabelFor(x => x.Nome)
+            @Html.TextBoxFor(x => x.Nome)
+        </div>
+        <div class="span4">
+            @Html.LabelFor(x => x.Valorunitario)
+            @Html.TextBoxFor(x => x.Valorunitario)
+        </div>
+        <div class="span4">
+            @Html.LabelFor(x => x.Descricao)
+            @Html.TextBoxFor(x => x.Descricao)
+        </div>
+        <input type="submit" value="Salvar" />
+    </div>
+
+ 
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Valor Unitario</th>
+                <th>Descrição do produto</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (GerenciadorDePedidos.Web.Models.Produto item in this.ViewBag.Produtos)
+            {
+                <tr>
+                    <td>@item.Nome  </td>
+                    <td>@item.Valorunitario</td>
+                    <td>@item.Descricao</td>
+                </tr> 
+            }
+
+
+        </tbody>
+    </table>
+    
+    
+}
