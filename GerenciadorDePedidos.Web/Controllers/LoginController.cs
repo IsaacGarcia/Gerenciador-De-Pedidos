@@ -24,7 +24,7 @@ namespace GerenciadorDePedidos.Web.Controllers
             }
             else
             {
-                return Redirect("/CadastroDeUsuario");
+                return Redirect("/Usuarios");
             }
             
         }
