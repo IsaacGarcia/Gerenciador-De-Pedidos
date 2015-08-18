@@ -116,6 +116,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CadastroDePedidosController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
@@ -147,9 +148,8 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-
   <ItemGroup>
-    <Folder Include="Views\Login\" />
+    <Folder Include="Views\CadastroDePedidos\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
