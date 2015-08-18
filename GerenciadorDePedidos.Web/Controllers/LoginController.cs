@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GerenciadorDePedidos.Web.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,6 +11,13 @@ namespace GerenciadorDePedidos.Web.Controllers
     {
         //
         // GET: /Login/
+
+        public ActionResult Logar(Usuario usuario)
+        {
+            GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
+            
+            return Redirect("/CadastroDeUsuario");
+        }
         public ActionResult Index()
         {
             return View();
