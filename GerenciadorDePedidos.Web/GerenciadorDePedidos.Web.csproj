@@ -129,6 +129,15 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508172023255_InitialCreate.cs" />
+    <Compile Include="Migrations\201508172023255_InitialCreate.Designer.cs">
+      <DependentUpon>201508172023255_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201508181811428_modelo inicial.cs" />
+    <Compile Include="Migrations\201508181811428_modelo inicial.Designer.cs">
+      <DependentUpon>201508181811428_modelo inicial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\GerenciadorDePedidosWebContext.cs" />
     <Compile Include="Models\Pedido.cs" />
     <Compile Include="Models\Usuario.cs" />
@@ -156,6 +165,14 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\CadastroDePedidos\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201508172023255_InitialCreate.resx">
+      <DependentUpon>201508172023255_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508181811428_modelo inicial.resx">
+      <DependentUpon>201508181811428_modelo inicial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
