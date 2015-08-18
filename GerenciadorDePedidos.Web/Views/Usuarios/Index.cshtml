@@ -4,3 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
 
+@using (Html.BeginForm("Salvar", "Usuarios", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.Nome, "Nome:");
+    @Html.TextBoxFor(x => x.Nome);
+}
