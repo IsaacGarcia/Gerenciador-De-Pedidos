@@ -2,13 +2,26 @@
 
 @{
     ViewBag.Title = "Index";
-    Layout = "_Layout"; 
+    Layout = "~/Views/Shared/_Layout.cshtml"; 
 }
 
 <h2>Index</h2>
 @using (Html.BeginForm ("Logar","Login"))
 {
+    <fieldset>
+        <legend>Por favor, entre</legend>
+        <ol> 
+             <li>
+                @Html.LabelFor(x => x.Login)
+                @Html.TextBoxFor(x => x.Login)
+            </li>
+            <li>
+                @Html.LabelFor(x => x.Senha)
+                @Html.PasswordFor(x => x.Senha)
+            </li>
 
 
-
+        </ol>
+            <input type="submit" value="Login" />
+    </fieldset>
 }

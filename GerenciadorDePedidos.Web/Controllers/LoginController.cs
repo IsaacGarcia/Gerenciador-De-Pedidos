@@ -16,7 +16,17 @@ namespace GerenciadorDePedidos.Web.Controllers
         {
             GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
             
-            return Redirect("/CadastroDeUsuario");
+            Usuario user = db.Usuarios.Where(x => x.Login == usuario.Login && x.Senha ==  usuario.Senha).SingleOrDefault();
+
+            if (user == null)
+            {
+                return Redirect("/Login");
+            }
+            else
+            {
+                return Redirect("/CadastroDeUsuario");
+            }
+            
         }
         public ActionResult Index()
         {
