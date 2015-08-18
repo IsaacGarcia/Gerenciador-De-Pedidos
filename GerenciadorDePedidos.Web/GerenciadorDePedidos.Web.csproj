@@ -135,6 +135,7 @@
     <Content Include="Views\Pedidos\Details.cshtml" />
     <Content Include="Views\Pedidos\Edit.cshtml" />
     <Content Include="Views\Pedidos\Index.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -143,8 +144,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Views\Usuarios\" />
     <Folder Include="Views\Login\" />
   </ItemGroup>
   <PropertyGroup>
