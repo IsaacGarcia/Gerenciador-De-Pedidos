@@ -40,8 +40,9 @@
                 <tr>
                     <td>@produto.Nome</td>
                     <td>@produto.Valorunitario</td>
-                    <td>@produto.Descricao</td> 
-                    <td>@Html.ActionLink("Deletar", "Remover", "CadastroDeProduto", new { Id = @produto.Id },null)</td>
+                    <td>@produto.Descricao</td>
+                    <td>@Html.ActionLink("Deletar", "Remover", "CadastroDeProduto", new { Id = @produto.Id }, null)</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { id = @produto.Id }) </td>
                 </tr>
                
             }
