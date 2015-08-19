@@ -12,11 +12,18 @@ namespace GerenciadorDePedidos.Web.Controllers
         //
         // GET: /Login/
 
+        public ActionResult Logout(Usuario usuario)
+        {
+            ControleDePedidosContext db = new ControleDePedidosContext();
+            HttpContext.Session.Add("UsuarioLogado", false);
+            return Redirect("/Login");
+        }
+
         public ActionResult Logar(Usuario usuario)
         {
             GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
-            
-            Usuario user = db.Usuarios.Where(x => x.Login == usuario.Login && x.Senha ==  usuario.Senha).SingleOrDefault();
+
+            Usuario user = db.Usuarios.Where(x => x.Login == usuario.Login && x.Senha == usuario.Senha).SingleOrDefault();
 
             if (user == null)
             {
@@ -24,13 +31,14 @@ namespace GerenciadorDePedidos.Web.Controllers
             }
             else
             {
-                return Redirect("/Usuarios");
+                HttpContext.Session.Add("UsuarioLogado", true);
+                return Redirect("/Home");
             }
-            
+
         }
         public ActionResult Index()
         {
             return View();
         }
-	}
+    }
 }

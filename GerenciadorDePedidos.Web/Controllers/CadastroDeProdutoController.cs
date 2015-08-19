@@ -7,10 +7,18 @@ using System.Web.Mvc;
 
 namespace GerenciadorDePedidos.Web.Controllers
 {
-    public class CadastroDeProdutoController : Controller
+    public class CadastroDeProdutoController : BaseController
     {
         //
         // GET: /CadastroDeProduto/
+
+        public ActionResult Logout(Usuario usuario)
+        {
+            ControleDePedidosContext db = new ControleDePedidosContext();
+            Session["Statusdousuario"] = "Logoff";
+            return Redirect("/Login");
+        }
+        
         public ActionResult Salvar(Produto produto)
         {
             GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();

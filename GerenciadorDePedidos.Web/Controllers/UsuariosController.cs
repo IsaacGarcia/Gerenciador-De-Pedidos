@@ -7,8 +7,16 @@ using System.Web.Mvc;
 
 namespace GerenciadorDePedidos.Web.Controllers
 {
-    public class UsuariosController : Controller
+    public class UsuariosController : BaseController
     {
+
+        public ActionResult Logout(Usuario usuario)
+        {
+            ControleDePedidosContext db = new ControleDePedidosContext();
+            Session["Statusdousuario"] = "Logoff";
+            return Redirect("/Login");
+        }
+        
         public ActionResult Salvar (Usuario usuario) 
         {
             GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();

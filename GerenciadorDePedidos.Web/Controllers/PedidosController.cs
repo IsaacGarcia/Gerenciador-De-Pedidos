@@ -10,7 +10,7 @@ using GerenciadorDePedidos.Web.Models;
 
 namespace GerenciadorDePedidos.Web.Controllers
 {
-    public class PedidosController : Controller
+    public class PedidosController : BaseController
     {
         private GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
 

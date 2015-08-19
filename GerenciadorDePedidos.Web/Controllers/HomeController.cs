@@ -6,10 +6,10 @@ using System.Web.Mvc;
 
 namespace GerenciadorDePedidos.Web.Controllers
 {
-    public class CadastroDePedidosController : BaseController
+    public class HomeController : BaseController
     {
         //
-        // GET: /CadastroDePedidos/
+        // GET: /Home/
         public ActionResult Index()
         {
             return View();
