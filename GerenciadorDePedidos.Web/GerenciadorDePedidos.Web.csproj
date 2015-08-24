@@ -121,6 +121,8 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CadastroDePedidosController.cs" />
     <Compile Include="Controllers\CadastroDeProdutoController.cs" />
+    <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\ControleDePedidosContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
@@ -142,6 +144,10 @@
     <Compile Include="Models\Data\GerenciadorDePedidosWebContext.cs" />
     <Compile Include="Models\Data\Pedido.cs" />
     <Compile Include="Models\Data\Usuario.cs" />
+    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\GerenciadorDePedidosWebContext.cs" />
+    <Compile Include="Models\Pedido.cs" />
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -162,6 +168,7 @@
     <Content Include="Views\CadastroDeProduto\Edit.cshtml" />
     <Content Include="Views\CadastroDePedidos\Index.cshtml" />
     <Content Include="Views\CadastroDePedidos\Produtos.cshtml" />
+    <Content Include="Views\Cliente\View1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
