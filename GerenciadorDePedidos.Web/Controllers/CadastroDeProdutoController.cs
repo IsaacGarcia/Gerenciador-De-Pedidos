@@ -10,6 +10,7 @@ namespace GerenciadorDePedidos.Web.Controllers
 {
     public class CadastroDeProdutoController : BaseController
     {
+        
         //
         // GET: /CadastroDeProduto/
 
@@ -53,10 +54,21 @@ namespace GerenciadorDePedidos.Web.Controllers
             return Redirect("/CadastroDeProduto");
         }
 
+        public ActionResult Remover(int Id)
+        {
+            GerenciadorDePedidosWebContext context = new GerenciadorDePedidosWebContext();
+            var produto = context.Produtoes.SingleOrDefault(x => x.Id == Id);
+            
+            context.Produtoes.Remove(produto);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
         public ActionResult Index()
         {
-            GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
             
+            GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
+
             this.ViewBag.Produtos = db.Produtoes.Select(x => x);
 
             return View();

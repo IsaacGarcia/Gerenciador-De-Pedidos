@@ -31,16 +31,18 @@
                 <th>Nome</th>
                 <th>Valor Unitario</th>
                 <th>Descrição</th>
+                <th>Ação</th>
             </tr>
         </thead>
         <tbody>
-            @foreach (GerenciadorDePedidos.Web.Models.Produto item in this.ViewBag.Produtos)
+            @foreach (GerenciadorDePedidos.Web.Models.Produto produto in this.ViewBag.Produtos)
             {
                 <tr>
-                    <td>@item.Nome</td>
-                    <td>@item.Valorunitario</td>
-                    <td>@item.Descricao</td>
-                   <td> @Html.ActionLink("Edit", "Edit", new { id=item.Id }) </td>
+                    <td>@produto.Nome</td>
+                    <td>@produto.Valorunitario</td>
+                    <td>@produto.Descricao</td>
+                    <td>@Html.ActionLink("Deletar", "Remover", "CadastroDeProduto", new { Id = @produto.Id }, null)</td>
+                    <td>@Html.ActionLink("Edit", "Edit", new { id = @produto.Id }) </td>
                 </tr>
                
             }
