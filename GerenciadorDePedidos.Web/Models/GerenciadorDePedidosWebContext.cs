@@ -12,7 +12,7 @@ namespace GerenciadorDePedidos.Web.Models
         // 
         // If you want Entity Framework to drop and regenerate your database
         // automatically whenever you change your model schema, please use data migrations.
-        // For more information refer to the documentation:
+        // For more information refer to the documentation: 
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
     
         public GerenciadorDePedidosWebContext() : base("name=GerenciadorDePedidosWebContext")
