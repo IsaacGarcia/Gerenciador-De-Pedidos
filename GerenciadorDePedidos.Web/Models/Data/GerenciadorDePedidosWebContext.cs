@@ -23,5 +23,7 @@ namespace GerenciadorDePedidos.Web.Models
         public DbSet<Usuario> Usuarios { get; set; }
 
         public System.Data.Entity.DbSet<GerenciadorDePedidos.Web.Models.Produto> Produtoes { get; set; }
+
+        public System.Data.Entity.DbSet<GerenciadorDePedidos.Web.Models.Item> Items { get; set; }
     }
 }
