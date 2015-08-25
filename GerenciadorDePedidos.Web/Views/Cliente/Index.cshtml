@@ -1,0 +1,20 @@
+﻿@model GerenciadorDePedidos.Web.Models.Cliente
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm("Cadastrar", "Clientes", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.RazaoSocial, "Razão Social: ")
+    @Html.TextBoxFor(x => x.RazaoSocial)
+
+    
+    
+    <input type="submit" value="Cadastrar" />            
+
+}
+
