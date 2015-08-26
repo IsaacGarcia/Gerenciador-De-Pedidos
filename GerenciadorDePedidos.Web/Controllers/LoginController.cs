@@ -14,7 +14,7 @@ namespace GerenciadorDePedidos.Web.Controllers
 
         public ActionResult Logout(Usuario usuario)
         {
-            ControleDePedidosContext db = new ControleDePedidosContext();
+            GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
             HttpContext.Session.Add("UsuarioLogado", false);
             return Redirect("/Login");
         }

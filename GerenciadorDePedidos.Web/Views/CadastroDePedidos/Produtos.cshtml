@@ -1,0 +1,26 @@
+﻿@model GerenciadorDePedidos.Web.Models.Item
+
+@{
+    ViewBag.Title = "Produtos";
+}
+
+<h2>Produtos</h2>
+@using (Html.BeginForm("Adicionar", "CadastroDePedidos"))
+{
+    <div class="row">
+        <div class="span4">
+            @Html.LabelFor(x => x.Produto)
+            @Html.TextBoxFor(x => x.Produto)
+        </div>
+        <div class="span4">
+            @Html.LabelFor(x => x.Quantidade)
+            @Html.TextBoxFor(x => x.Quantidade)
+        </div>
+        <div class="span4">
+            @Html.LabelFor(x => x.Total)
+            @Html.TextBoxFor(x => x.Total)
+        </div>
+        <input type="submit" value="Salvar" />
+    </div>
+    
+}

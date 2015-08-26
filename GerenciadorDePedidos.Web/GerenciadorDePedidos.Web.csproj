@@ -114,9 +114,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config">
-      <SubType>Designer</SubType>
-    </Content>
+    <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -124,7 +122,6 @@
     <Compile Include="Controllers\CadastroDePedidosController.cs" />
     <Compile Include="Controllers\CadastroDeProdutoController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
-    <Compile Include="Controllers\ControleDePedidosContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
@@ -146,10 +143,11 @@
       <DependentUpon>201508242019326_rodrigo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Views\CadastroDePedido.cs" />
+    <Compile Include="Models\Data\GerenciadorDePedidosWebContext.cs" />
+    <Compile Include="Models\Data\Pedido.cs" />
+    <Compile Include="Models\Data\Usuario.cs" />
     <Compile Include="Models\Cliente.cs" />
-    <Compile Include="Models\GerenciadorDePedidosWebContext.cs" />
-    <Compile Include="Models\Pedido.cs" />
-    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -169,6 +167,8 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\CadastroDeProduto\Edit.cshtml" />
     <Content Include="Views\Cliente\Index.cshtml" />
+    <Content Include="Views\CadastroDePedidos\Index.cshtml" />
+    <Content Include="Views\CadastroDePedidos\Produtos.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -179,7 +179,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\CadastroDePedidos\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201508172023255_InitialCreate.resx">
