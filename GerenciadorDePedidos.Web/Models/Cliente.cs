@@ -9,6 +9,7 @@ namespace GerenciadorDePedidos.Web.Models
     {
         public int Id { get; set; }
         public EnderecoCliente EnderecoCliente { get; set; }
+        public string Cnpj { get; set; }
         public string RazaoSocial { get; set; }
         public string NomeFantasia { get; set; }
         public string Telefone { get; set; }

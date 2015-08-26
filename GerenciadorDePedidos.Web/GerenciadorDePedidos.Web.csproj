@@ -95,6 +95,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\GerenciadorDePedidos.mdf" />
+    <Content Include="App_Data\GerenciadorDePedidos_log.ldf">
+      <DependentUpon>GerenciadorDePedidos.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -114,7 +118,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -130,13 +136,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201508172023255_InitialCreate.cs" />
-    <Compile Include="Migrations\201508172023255_InitialCreate.Designer.cs">
-      <DependentUpon>201508172023255_InitialCreate.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201508181811428_modelo inicial.cs" />
-    <Compile Include="Migrations\201508181811428_modelo inicial.Designer.cs">
-      <DependentUpon>201508181811428_modelo inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201508261925444_Carga inicial.cs" />
+    <Compile Include="Migrations\201508261925444_Carga inicial.Designer.cs">
+      <DependentUpon>201508261925444_Carga inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\201508261817203_Migracao.cs" />
     <Compile Include="Migrations\201508261817203_Migracao.Designer.cs">
@@ -166,9 +168,9 @@
     <Content Include="Views\CadastroDeProduto\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\CadastroDeProduto\Edit.cshtml" />
+    <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\CadastroDePedidos\Index.cshtml" />
     <Content Include="Views\CadastroDePedidos\Produtos.cshtml" />
-    <Content Include="Views\Cliente\View1.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -177,15 +179,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508172023255_InitialCreate.resx">
-      <DependentUpon>201508172023255_InitialCreate.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201508181811428_modelo inicial.resx">
-      <DependentUpon>201508181811428_modelo inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201508261925444_Carga inicial.resx">
+      <DependentUpon>201508261925444_Carga inicial.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508261817203_Migracao.resx">
       <DependentUpon>201508261817203_Migracao.cs</DependentUpon>

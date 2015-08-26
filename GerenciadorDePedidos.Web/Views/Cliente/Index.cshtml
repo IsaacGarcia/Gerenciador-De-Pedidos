@@ -1,0 +1,49 @@
+﻿@model GerenciadorDePedidos.Web.Models.Cliente
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cadastro de Clientes</h2>
+
+<h4>Dados da Empresa:</h4>
+
+@using (Html.BeginForm("Cadastrar", "Cliente", FormMethod.Post))
+{
+    @Html.LabelFor(x => x.RazaoSocial, "Razão Social: ")
+    @Html.TextBoxFor(x => x.RazaoSocial)
+    
+    @Html.LabelFor(x => x.Cnpj, "Numero do CNPJ: ")
+    @Html.TextBoxFor(x => x.Cnpj)
+
+    @Html.LabelFor(x => x.NomeFantasia, "Nome Fantasia: ")
+    @Html.TextBoxFor(x => x.NomeFantasia)
+
+    @Html.LabelFor(x => x.Email, "Email: ")
+    @Html.TextBoxFor(x => x.Email)
+
+    @Html.LabelFor(x => x.Telefone, "Telefone: ")
+    @Html.TextBoxFor(x => x.Telefone)
+
+    <h4>Endereço:</h4>
+    
+    @Html.LabelFor(x => x.EnderecoCliente.Rua, "Rua: ")
+    @Html.TextBoxFor(x => x.EnderecoCliente.Rua)
+
+    @Html.LabelFor(x => x.EnderecoCliente.Bairro, "Bairro: ")
+    @Html.TextBoxFor(x => x.EnderecoCliente.Bairro)
+
+    @Html.LabelFor(x => x.EnderecoCliente.Cidade, "Cidade: ")
+    @Html.TextBoxFor(x => x.EnderecoCliente.Cidade)
+
+    @Html.LabelFor(x => x.EnderecoCliente.Estado, "Estado: ")
+    @Html.TextBoxFor(x => x.EnderecoCliente.Estado)
+
+    @Html.LabelFor(x => x.EnderecoCliente.Cep, "CEP: ")
+    @Html.TextBoxFor(x => x.EnderecoCliente.Cep)
+    
+    <input type="submit" value="Cadastrar" />            
+
+}
+

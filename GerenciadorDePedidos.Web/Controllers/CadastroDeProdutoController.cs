@@ -28,7 +28,6 @@ namespace GerenciadorDePedidos.Web.Controllers
             Produto produto = db.Produtoes.Find(Id);
             
             return View(produto);
-
         }
 
         [HttpPost]
@@ -66,10 +65,11 @@ namespace GerenciadorDePedidos.Web.Controllers
 
         public ActionResult Index()
         {
-            
             GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
 
             this.ViewBag.Produtos = db.Produtoes.Select(x => x);
+
+            
 
             return View();
         }

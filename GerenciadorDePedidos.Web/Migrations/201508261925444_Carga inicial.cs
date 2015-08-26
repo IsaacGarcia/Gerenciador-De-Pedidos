@@ -3,10 +3,40 @@ namespace GerenciadorDePedidos.Web.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class modeloinicial : DbMigration
+    public partial class Cargainicial : DbMigration
     {
         public override void Up()
         {
+            CreateTable(
+                "dbo.Clientes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Cnpj = c.String(),
+                        RazaoSocial = c.String(),
+                        NomeFantasia = c.String(),
+                        Telefone = c.String(),
+                        Email = c.String(),
+                        EnderecoCliente_Id = c.Int(),
+                    })
+                .PrimaryKey(t => t.Id)
+                .ForeignKey("dbo.EnderecoClientes", t => t.EnderecoCliente_Id)
+                .Index(t => t.EnderecoCliente_Id);
+            
+            CreateTable(
+                "dbo.EnderecoClientes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Rua = c.String(),
+                        Bairro = c.String(),
+                        Cidade = c.String(),
+                        Estado = c.String(),
+                        Cep = c.String(),
+                        Complemento = c.String(),
+                    })
+                .PrimaryKey(t => t.Id);
+            
             CreateTable(
                 "dbo.Items",
                 c => new
@@ -35,6 +65,17 @@ namespace GerenciadorDePedidos.Web.Migrations
                 .PrimaryKey(t => t.Id);
             
             CreateTable(
+                "dbo.Pedidoes",
+                c => new
+                    {
+                        Id = c.Int(nullable: false, identity: true),
+                        Descricao = c.String(),
+                        Data = c.DateTime(nullable: false),
+                        Valortotal = c.Double(nullable: false),
+                    })
+                .PrimaryKey(t => t.Id);
+            
+            CreateTable(
                 "dbo.Usuarios",
                 c => new
                     {
@@ -47,27 +88,22 @@ namespace GerenciadorDePedidos.Web.Migrations
                     })
                 .PrimaryKey(t => t.Id);
             
-            AddColumn("dbo.Pedidoes", "Descricao", c => c.String());
-            AddColumn("dbo.Pedidoes", "Data", c => c.DateTime(nullable: false));
-            AddColumn("dbo.Pedidoes", "Valortotal", c => c.Double(nullable: false));
-            DropColumn("dbo.Pedidoes", "Nome");
-            DropColumn("dbo.Pedidoes", "DataDoCadastro");
         }
         
         public override void Down()
         {
-            AddColumn("dbo.Pedidoes", "DataDoCadastro", c => c.DateTime(nullable: false));
-            AddColumn("dbo.Pedidoes", "Nome", c => c.String());
             DropForeignKey("dbo.Items", "Pedido_Id", "dbo.Pedidoes");
             DropForeignKey("dbo.Items", "Produto_Id", "dbo.Produtoes");
+            DropForeignKey("dbo.Clientes", "EnderecoCliente_Id", "dbo.EnderecoClientes");
             DropIndex("dbo.Items", new[] { "Pedido_Id" });
             DropIndex("dbo.Items", new[] { "Produto_Id" });
-            DropColumn("dbo.Pedidoes", "Valortotal");
-            DropColumn("dbo.Pedidoes", "Data");
-            DropColumn("dbo.Pedidoes", "Descricao");
+            DropIndex("dbo.Clientes", new[] { "EnderecoCliente_Id" });
             DropTable("dbo.Usuarios");
+            DropTable("dbo.Pedidoes");
             DropTable("dbo.Produtoes");
             DropTable("dbo.Items");
+            DropTable("dbo.EnderecoClientes");
+            DropTable("dbo.Clientes");
         }
     }
 }
