@@ -14,11 +14,10 @@ namespace GerenciadorDePedidos.Web.Controllers
 
         public ActionResult Logout(Usuario usuario)
         {
-            ControleDePedidosContext db = new ControleDePedidosContext();
+            GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
             HttpContext.Session.Add("UsuarioLogado", false);
             return Redirect("/Login");
         }
-
         public ActionResult Logar(Usuario usuario)
         {
             GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
@@ -34,7 +33,6 @@ namespace GerenciadorDePedidos.Web.Controllers
                 HttpContext.Session.Add("UsuarioLogado", true);
                 return Redirect("/Home");
             }
-
         }
         public ActionResult Index()
         {

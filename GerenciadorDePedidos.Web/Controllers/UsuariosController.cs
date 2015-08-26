@@ -12,7 +12,7 @@ namespace GerenciadorDePedidos.Web.Controllers
 
         public ActionResult Logout(Usuario usuario)
         {
-            ControleDePedidosContext db = new ControleDePedidosContext();
+            GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
             Session["Statusdousuario"] = "Logoff";
             return Redirect("/Login");
         }

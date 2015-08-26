@@ -122,7 +122,6 @@
     <Compile Include="Controllers\CadastroDePedidosController.cs" />
     <Compile Include="Controllers\CadastroDeProdutoController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
-    <Compile Include="Controllers\ControleDePedidosContext.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
@@ -139,15 +138,16 @@
     <Compile Include="Migrations\201508181811428_modelo inicial.Designer.cs">
       <DependentUpon>201508181811428_modelo inicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508261817203_Migracao.cs" />
+    <Compile Include="Migrations\201508261817203_Migracao.Designer.cs">
+      <DependentUpon>201508261817203_Migracao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Views\CadastroDePedido.cs" />
     <Compile Include="Models\Data\GerenciadorDePedidosWebContext.cs" />
     <Compile Include="Models\Data\Pedido.cs" />
     <Compile Include="Models\Data\Usuario.cs" />
     <Compile Include="Models\Cliente.cs" />
-    <Compile Include="Models\GerenciadorDePedidosWebContext.cs" />
-    <Compile Include="Models\Pedido.cs" />
-    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -186,6 +186,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201508181811428_modelo inicial.resx">
       <DependentUpon>201508181811428_modelo inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508261817203_Migracao.resx">
+      <DependentUpon>201508261817203_Migracao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

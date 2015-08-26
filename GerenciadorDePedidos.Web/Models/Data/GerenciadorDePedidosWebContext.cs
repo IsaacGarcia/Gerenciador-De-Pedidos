@@ -23,11 +23,10 @@ namespace GerenciadorDePedidos.Web.Models
         public DbSet<Usuario> Usuarios { get; set; }
 
         public System.Data.Entity.DbSet<GerenciadorDePedidos.Web.Models.Produto> Produtoes { get; set; }
-<<<<<<< HEAD:GerenciadorDePedidos.Web/Models/Data/GerenciadorDePedidosWebContext.cs
 
         public System.Data.Entity.DbSet<GerenciadorDePedidos.Web.Models.Item> Items { get; set; }
-=======
+
         public System.Data.Entity.DbSet<GerenciadorDePedidos.Web.Models.Cliente> Clientes { get; set; }
->>>>>>> origin/master:GerenciadorDePedidos.Web/Models/GerenciadorDePedidosWebContext.cs
+
     }
 }
