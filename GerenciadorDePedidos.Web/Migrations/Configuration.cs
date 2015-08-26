@@ -9,7 +9,7 @@ namespace GerenciadorDePedidos.Web.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "GerenciadorDePedidos.Web.Models.GerenciadorDePedidosWebContext";
         }
 

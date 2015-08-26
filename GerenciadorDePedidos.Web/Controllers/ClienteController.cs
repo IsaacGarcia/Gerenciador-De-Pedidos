@@ -9,15 +9,21 @@ namespace GerenciadorDePedidos.Web.Controllers
 {
     public class ClienteController : BaseController
     {
-        
-        
+
+        public ActionResult Cadastrar (Cliente cliente)
+        {
+            GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
+
+            db.Clientes.Add(cliente);
+            db.SaveChanges();
+
+            return View("Index");
+        }
         //
         // GET: /Cliente/
         public ActionResult Index()
         {
-
-            ViewBag.coco = 1;
-
+                        
             return View();
         }
 	}
