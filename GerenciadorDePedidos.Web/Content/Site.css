@@ -1,4 +1,7 @@
-﻿body {
+﻿
+    
+
+body {
     padding-top: 50px;
     padding-bottom: 20px;
 }
@@ -12,7 +15,8 @@
 /* Set width on the form input elements since they're 100% wide by default */
 input[type="text"],
 input[type="password"] {
-    max-width: 280px;
+    max-width: 400px;
+    width: 200px auto;
 }
 
 /* styles for validation helpers */
