@@ -140,6 +140,10 @@
     <Compile Include="Migrations\201508261925444_Carga inicial.Designer.cs">
       <DependentUpon>201508261925444_Carga inicial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201508261817203_Migracao.cs" />
+    <Compile Include="Migrations\201508261817203_Migracao.Designer.cs">
+      <DependentUpon>201508261817203_Migracao.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Views\CadastroDePedido.cs" />
     <Compile Include="Models\Data\GerenciadorDePedidosWebContext.cs" />
@@ -180,6 +184,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201508261925444_Carga inicial.resx">
       <DependentUpon>201508261925444_Carga inicial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201508261817203_Migracao.resx">
+      <DependentUpon>201508261817203_Migracao.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
