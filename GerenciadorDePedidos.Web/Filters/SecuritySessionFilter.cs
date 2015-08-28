@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -10,10 +11,13 @@ namespace GerenciadorDePedidos.Web.Filters
     {
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            if (!UsuarioEstaLogado(filterContext))
-                filterContext.Result = new RedirectToRouteResult(ObterRota());
+            if (Convert.ToBoolean(ConfigurationManager.AppSettings["SegurancaAtiva"]))
+            {
+                if (!UsuarioEstaLogado(filterContext))
+                    filterContext.Result = new RedirectToRouteResult(ObterRota());
 
-            base.OnActionExecuting(filterContext);
+                base.OnActionExecuting(filterContext);
+            }
         }
 
         private static bool UsuarioEstaLogado(ActionExecutingContext filterContext)
