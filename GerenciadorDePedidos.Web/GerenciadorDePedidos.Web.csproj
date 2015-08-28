@@ -95,10 +95,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\GerenciadorDePedidos.mdf" />
-    <Content Include="App_Data\GerenciadorDePedidos_log.ldf">
-      <DependentUpon>GerenciadorDePedidos.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
@@ -136,13 +132,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201508261925444_Carga inicial.cs" />
-    <Compile Include="Migrations\201508261925444_Carga inicial.Designer.cs">
-      <DependentUpon>201508261925444_Carga inicial.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201508261817203_Migracao.cs" />
-    <Compile Include="Migrations\201508261817203_Migracao.Designer.cs">
-      <DependentUpon>201508261817203_Migracao.cs</DependentUpon>
+    <Compile Include="Migrations\201508262015532_Carga Inicial.cs" />
+    <Compile Include="Migrations\201508262015532_Carga Inicial.Designer.cs">
+      <DependentUpon>201508262015532_Carga Inicial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Views\CadastroDePedido.cs" />
@@ -179,14 +171,12 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508261925444_Carga inicial.resx">
-      <DependentUpon>201508261925444_Carga inicial.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201508261817203_Migracao.resx">
-      <DependentUpon>201508261817203_Migracao.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201508262015532_Carga Inicial.resx">
+      <DependentUpon>201508262015532_Carga Inicial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
