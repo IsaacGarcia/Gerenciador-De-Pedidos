@@ -1,6 +1,4 @@
-﻿@model GerenciadorDePedidos.Web.Models.Views.CadastroDePedido
-
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
@@ -9,14 +7,67 @@
 {
     <div class="row">
         <div class="span4">
-            @Html.LabelFor(x => x.Produtos)
-            @Html.DropDownListFor(x => x.Produtos, new SelectList(Model.Produtos, "Id", "Nome"), "Selecione")
+            @Html.Label("Produtos")
+            @Html.DropDownList("produto", new SelectList(ViewBag.Produtos, "Id", "Nome"), "Selecione")
         </div>
-      
+        <div class="span4">
+            @Html.Label("Quantidade")
+            @Html.TextBox("quantidade")
+        </div>
+        <div class="span4">
+            @Html.Label("Total")
+            @Html.TextBox("Total")
+        </div>
+
+
         <input type="submit" value="Salvar" />
     </div>
-    
-    
-    
-}
 
+        
+}
+<script type="text/javascript">
+
+    
+
+
+    $(document).ready(function ()
+    {
+        $('#quantidade').change(function () {
+            var idDoProduto = $("#produto").val();
+
+
+            $.getJSON("/CadastroDePedidos/ObterProdutoPeloId?id=" + idDoProduto)
+                .done(function( json ) {
+   
+                   // alert(JSON.stringify(json));
+
+                    var total = parseFloat(json.Valorunitario) * parseFloat($("#quantidade").val());
+
+                    $("#Total").val(total);
+                })
+        });
+
+    });
+
+    
+        //$.ajax({
+        //    url: "/CadatroDePedidos/ObterProdutoPeloId?id=" + idDoProduto,
+        //    type: "GET",
+        //    dataType: "json",
+        //    contentType: "application/json; charset=utf-8",
+        //    error: function (data)
+        //    {
+        //        alert(data.Id);
+        //    }
+        //});
+            
+    
+        
+    
+
+
+
+
+
+
+</script>

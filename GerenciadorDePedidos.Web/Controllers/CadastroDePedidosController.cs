@@ -13,20 +13,31 @@ namespace GerenciadorDePedidos.Web.Controllers
         //
         // GET: /CadastroDePedidos/
 
-        public ActionResult Adicionar()
+        [HttpGet]
+        public JsonResult ObterProdutoPeloId(int id)
+        {
+            GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
+
+            var produto = db.Produtoes.SingleOrDefault(x => x.Id == id);
+
+            return Json(produto, JsonRequestBehavior.AllowGet);
+        }
+
+
+        public ActionResult Adicionar(Produto produto, int quantidade, int total)
         {
             return Redirect("/Produtos");
         }
-        
+
         public ActionResult Index()
         {
             GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
 
             CadastroDePedido pedido = new CadastroDePedido();
 
-            pedido.Produtos = db.Produtoes.Select(x => x).ToList();
-            
-            return View(pedido);
+            ViewBag.Produtos = db.Produtoes.Select(x => x).ToList();
+
+            return View();
         }
-	}
+    }
 }

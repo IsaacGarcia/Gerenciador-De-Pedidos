@@ -9,6 +9,7 @@ namespace GerenciadorDePedidos.Web.Models.Views
     {
         public Pedido Pedido { get; set; }
         public List<Produto> Produtos { get; set; }
+        
 
     }
 }

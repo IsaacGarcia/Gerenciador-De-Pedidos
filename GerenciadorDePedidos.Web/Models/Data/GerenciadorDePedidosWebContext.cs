@@ -15,7 +15,7 @@ namespace GerenciadorDePedidos.Web.Models
         // For more information refer to the documentation: 
         // http://msdn.microsoft.com/en-us/data/jj591621.aspx
     
-        public GerenciadorDePedidosWebContext() : base("name=GerenciadorDePedidosWebContext")
+        public GerenciadorDePedidosWebContext() : base("GerenciadorDePedidosWebContext")
         {
         }
 

@@ -132,9 +132,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201508262015532_Carga Inicial.cs" />
-    <Compile Include="Migrations\201508262015532_Carga Inicial.Designer.cs">
-      <DependentUpon>201508262015532_Carga Inicial.cs</DependentUpon>
+    <Compile Include="Migrations\201508281518137_Carga.cs" />
+    <Compile Include="Migrations\201508281518137_Carga.Designer.cs">
+      <DependentUpon>201508281518137_Carga.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Views\CadastroDePedido.cs" />
@@ -175,8 +175,8 @@
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201508262015532_Carga Inicial.resx">
-      <DependentUpon>201508262015532_Carga Inicial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201508281518137_Carga.resx">
+      <DependentUpon>201508281518137_Carga.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

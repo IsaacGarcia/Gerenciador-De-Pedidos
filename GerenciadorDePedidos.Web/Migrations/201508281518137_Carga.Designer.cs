@@ -7,13 +7,13 @@ namespace GerenciadorDePedidos.Web.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.0.0-20911")]
-    public sealed partial class CargaInicial : IMigrationMetadata
+    public sealed partial class Carga : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(CargaInicial));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Carga));
         
         string IMigrationMetadata.Id
         {
-            get { return "201508262015532_Carga Inicial"; }
+            get { return "201508281518137_Carga"; }
         }
         
         string IMigrationMetadata.Source

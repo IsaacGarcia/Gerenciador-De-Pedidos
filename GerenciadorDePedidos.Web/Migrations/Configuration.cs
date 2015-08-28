@@ -1,5 +1,6 @@
 namespace GerenciadorDePedidos.Web.Migrations
 {
+    using GerenciadorDePedidos.Web.Models;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -9,8 +10,7 @@ namespace GerenciadorDePedidos.Web.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = true;
-            ContextKey = "GerenciadorDePedidos.Web.Models.GerenciadorDePedidosWebContext";
+            AutomaticMigrationsEnabled = false;
         }
 
         protected override void Seed(GerenciadorDePedidos.Web.Models.GerenciadorDePedidosWebContext context)
@@ -27,6 +27,11 @@ namespace GerenciadorDePedidos.Web.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Usuarios.Add(new Usuario { Login = "admin", Senha = "admin", Nome = "fulano", Sexo = Sexo.Masculino });
+
+            context.Produtoes.Add(new Produto { Nome = "Detergente", Valorunitario = 200, Descricao = "Produto Bom" });
+
         }
     }
 }
