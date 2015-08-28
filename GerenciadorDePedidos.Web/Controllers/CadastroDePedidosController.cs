@@ -1,4 +1,5 @@
 ﻿using GerenciadorDePedidos.Web.Models;
+using GerenciadorDePedidos.Web.Models.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,6 @@ namespace GerenciadorDePedidos.Web.Controllers
 
         public ActionResult Adicionar()
         {
-            
-
-
-
             return Redirect("/Produtos");
         }
         
@@ -25,8 +22,11 @@ namespace GerenciadorDePedidos.Web.Controllers
         {
             GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
 
+            CadastroDePedido pedido = new CadastroDePedido();
 
-            return View();
+            pedido.Produtos = db.Produtoes.Select(x => x).ToList();
+            
+            return View(pedido);
         }
 	}
 }
