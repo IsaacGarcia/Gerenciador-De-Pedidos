@@ -1,0 +1,90 @@
+﻿@model GerenciadorDePedidos.Web.Models.Pedido
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Confirmar exclusão do pedido nº @Model.Id?</h2>
+<hr />
+
+<div class="panel panel-danger">
+    <div class="panel-heading">
+       <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span><b> Detalhes do Pedido</b>
+
+    </div>
+
+    <div class="panel-body">
+
+        @foreach (GerenciadorDePedidos.Web.Models.Cliente Cliente in this.ViewBag.Cliente)
+        {
+            
+            <div id="fisica" class="row">
+                <div class="col-md-2">
+                    <label>Cliente: </label>@Cliente.Nome @Cliente.Sobrenome @Cliente.NomeFantasia
+                </div>
+                <div class="col-md-3">
+                    <label>E-mail: </label>@Cliente.Email
+                </div>
+                <div class="col-md-3">
+                    <label>CPF/CNPJ: </label>@Cliente.Cpf @Cliente.Cnpj
+                </div>
+                <div class="col-md-2">
+                    <label>Telefone: </label>@Cliente.Telefone
+                </div>
+                <div class="col-md-2">
+                    <label>Data: </label>@Model.Dia/@Model.Mes/@Model.Ano
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <label>Descrição: </label>@Model.Descricao
+                </div>
+            </div>
+                      
+        }
+
+
+        <hr />
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+
+            @foreach (GerenciadorDePedidos.Web.Models.Item item in this.ViewBag.Itens)
+            {
+
+                <tr>
+                    <td>@foreach (GerenciadorDePedidos.Web.Models.Produto Produto in this.ViewBag.Produto)
+                        {
+                            if (Produto == item.Produto)
+                            {
+                        @Produto.Nome
+                            }
+                        }
+                    </td>
+                    <td>@item.Quantidade und.</td>
+                    <td>R$@item.Total,00</td>
+                </tr>
+        
+
+            }
+        </table>
+        <div class="panel-footer"><b>Sub-total: </b>R$@Model.Valortotal,00</div>
+    </div>
+</div>
+<p>
+     <a href="@Url.Action("DeletarConfirmado", new { id = @Model.Id })"  class="btn btn-danger">Excluir <span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+        <a href="@Url.Action("Index")"  class="btn btn-primary">Voltar <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span></a>
+
+</p>
+
+</div>
+<hr />
+
+
+

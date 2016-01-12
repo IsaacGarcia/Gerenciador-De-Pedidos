@@ -1,0 +1,101 @@
+﻿@model GerenciadorDePedidos.Web.Models.Views.GraficoViewModel
+
+@{
+    ViewBag.Title = "CalculaMes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script type="text/javascript">
+
+    google.load('visualization', '1', { 'packages': ['corechart'] });
+    google.setOnLoadCallback(desenhaGrafico);
+
+    function desenhaGrafico() {
+        var data = new google.visualization.DataTable();
+        data.addColumn('string', 'Mês');
+        data.addColumn('number', 'Ganhos em R$');
+
+        data.addRows(7);
+
+        // dados de janeiro
+        data.setValue(0, 0, 'Janeiro');
+        data.setValue(0, 1, '@Model.Janeiro');
+        // dados de fevereiro
+        data.setValue(1, 0, 'Fevereiro');
+        data.setValue(1, 1, '@Model.Fevereiro');
+        // dados de marco
+        data.setValue(2, 0, 'Março');
+        data.setValue(2, 1, '@Model.Marco');
+        // dados de marco
+        data.setValue(3, 0, 'Abril');
+        data.setValue(3, 1, '@Model.Abril');
+        // dados de marco
+        data.setValue(4, 0, 'Maio');
+        data.setValue(4, 1, '@Model.Maio');
+        // dados de marco
+        data.setValue(5, 0, 'Junho');
+        data.setValue(5, 1, '@Model.Junho');
+        // dados de marco
+        data.setValue(6, 0, 'Julho');
+        data.setValue(6, 1, '@Model.Julho');
+
+
+
+        // cria grafico
+        var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        // desenha grafico de 400x240 com titulo especificado
+        chart.draw(data, { width: 400, height: 240, title: 'Ganhos do mês' });
+
+
+
+    }
+
+
+    google.load('visualization', '1', { 'packages': ['corechart'] });
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = new google.visualization.DataTable();
+        dados.addColumn('string', 'Tipo do gasto');
+        dados.addColumn('number', 'Valor gasto');
+        dados.addRows(4);
+        dados.setValue(0, 0, 'Pasta pratica');
+        dados.setValue(0, 1, 450);
+        dados.setValue(1, 0, 'Cloro');
+        dados.setValue(1, 1, 300);
+        dados.setValue(2, 0, 'Amaciante');
+        dados.setValue(2, 1, 600);
+        dados.setValue(3, 0, 'Desinfetante');
+        dados.setValue(3, 1, 350);
+
+        var chart = new google.visualization.PieChart(document.getElementById('chart'));
+        chart.draw(data, { width: 450, height: 300, title: 'Tipos de gastos' });
+
+        google.visualization.events.addListener(grafico, 'select', avisaDoClique);
+
+        function avisaDoClique(event) {
+            document.getElementById('msg').innerHTML += "Clique efetuado! <br/>";
+        }
+
+    }
+
+</script>
+
+<h2><span class="glyphicon glyphicon-stats" aria-hidden="true"></span>Ganhos Mensais</h2>
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        <div class="well">
+            <div id="chart_div"></div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="well">
+            <div id="chart"></div>
+        </div>
+
+    </div>
+</div>

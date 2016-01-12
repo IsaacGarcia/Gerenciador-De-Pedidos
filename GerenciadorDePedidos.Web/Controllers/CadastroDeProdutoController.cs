@@ -55,21 +55,31 @@ namespace GerenciadorDePedidos.Web.Controllers
 
         public ActionResult Remover(int Id)
         {
-            GerenciadorDePedidosWebContext context = new GerenciadorDePedidosWebContext();
-            var produto = context.Produtoes.SingleOrDefault(x => x.Id == Id);
-            
-            context.Produtoes.Remove(produto);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+             GerenciadorDePedidosWebContext context = new GerenciadorDePedidosWebContext();
+
+            try
+            {
+                var produto = context.Produtoes.SingleOrDefault(x => x.Id == Id);
+
+                context.Produtoes.Remove(produto);
+
+                context.SaveChanges();
+
+                return RedirectToAction("Index");
+            }
+            catch
+            {               
+                this.ViewBag.Produtos = context.Produtoes.Select(x => x);   
+
+                return View("Erro");
+            }
         }
 
         public ActionResult Index()
         {
             GerenciadorDePedidosWebContext db = new GerenciadorDePedidosWebContext();
 
-            this.ViewBag.Produtos = db.Produtoes.Select(x => x);
-
-            
+            this.ViewBag.Produtos = db.Produtoes.Select(x => x);            
 
             return View();
         }

@@ -95,20 +95,53 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\DbGereciador.mdf" />
+    <Content Include="App_Data\DbGereciador_log.ldf">
+      <DependentUpon>DbGereciador.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Site.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\font-awesome.css" />
+    <Content Include="css\font-awesome.min.css" />
+    <Content Include="css\simple-sidebar.css" />
+    <Content Include="fonts\fontawesome-webfont.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\fontawesome-webfont.eot" />
+    <Content Include="fonts\fontawesome-webfont.ttf" />
+    <Content Include="fonts\fontawesome-webfont.woff" />
+    <Content Include="fonts\fontawesome-webfont.woff2" />
+    <Content Include="fonts\FontAwesome.otf" />
+    <Content Include="less\animated.less" />
+    <Content Include="less\bordered-pulled.less" />
+    <Content Include="less\core.less" />
+    <Content Include="less\fixed-width.less" />
+    <Content Include="less\font-awesome.less" />
+    <Content Include="less\icons.less" />
+    <Content Include="less\larger.less" />
+    <Content Include="less\list.less" />
+    <Content Include="less\mixins.less" />
+    <Content Include="less\path.less" />
+    <Content Include="less\rotated-flipped.less" />
+    <Content Include="less\stacked.less" />
+    <Content Include="less\variables.less" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.maskedinput.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -124,10 +157,15 @@
     <Compile Include="Controllers\CadastroDePedidosController.cs" />
     <Compile Include="Controllers\CadastroDeProdutoController.cs" />
     <Compile Include="Controllers\ClienteController.cs" />
+    <Compile Include="Controllers\ConfiguracaoDeUsuarioController.cs" />
+    <Compile Include="Controllers\GraficosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PedidosController.cs" />
+    <Compile Include="Controllers\PedidosFiltroController.cs" />
+    <Compile Include="Controllers\PedidosViewController.cs" />
     <Compile Include="Controllers\UsuariosController.cs" />
+    <Compile Include="Controllers\VisualizaProdutosController.cs" />
     <Compile Include="Filters\SecuritySessionFilter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -136,12 +174,75 @@
     <Compile Include="Migrations\201508281518137_Carga.Designer.cs">
       <DependentUpon>201508281518137_Carga.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201510191750516_TabelaCliente.cs" />
+    <Compile Include="Migrations\201510191750516_TabelaCliente.Designer.cs">
+      <DependentUpon>201510191750516_TabelaCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201511302017076_Carga1.cs" />
+    <Compile Include="Migrations\201511302017076_Carga1.Designer.cs">
+      <DependentUpon>201511302017076_Carga1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512011931377_Carga2.cs" />
+    <Compile Include="Migrations\201512011931377_Carga2.Designer.cs">
+      <DependentUpon>201512011931377_Carga2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512021026303_Carga3.cs" />
+    <Compile Include="Migrations\201512021026303_Carga3.Designer.cs">
+      <DependentUpon>201512021026303_Carga3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512021710152_Carga4.cs" />
+    <Compile Include="Migrations\201512021710152_Carga4.Designer.cs">
+      <DependentUpon>201512021710152_Carga4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512031402360_CargaPedido.cs" />
+    <Compile Include="Migrations\201512031402360_CargaPedido.Designer.cs">
+      <DependentUpon>201512031402360_CargaPedido.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512031530151_CargaPedido1.cs" />
+    <Compile Include="Migrations\201512031530151_CargaPedido1.Designer.cs">
+      <DependentUpon>201512031530151_CargaPedido1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512041052555_CargaPedido2.cs" />
+    <Compile Include="Migrations\201512041052555_CargaPedido2.Designer.cs">
+      <DependentUpon>201512041052555_CargaPedido2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512041107444_Carga5.cs" />
+    <Compile Include="Migrations\201512041107444_Carga5.Designer.cs">
+      <DependentUpon>201512041107444_Carga5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512141751017_Carga6.cs" />
+    <Compile Include="Migrations\201512141751017_Carga6.Designer.cs">
+      <DependentUpon>201512141751017_Carga6.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512141752377_Carga7.cs" />
+    <Compile Include="Migrations\201512141752377_Carga7.Designer.cs">
+      <DependentUpon>201512141752377_Carga7.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512191218232_CargaUsuario.cs" />
+    <Compile Include="Migrations\201512191218232_CargaUsuario.Designer.cs">
+      <DependentUpon>201512191218232_CargaUsuario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512201258119_Carga8.cs" />
+    <Compile Include="Migrations\201512201258119_Carga8.Designer.cs">
+      <DependentUpon>201512201258119_Carga8.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512201503022_Carga9.cs" />
+    <Compile Include="Migrations\201512201503022_Carga9.Designer.cs">
+      <DependentUpon>201512201503022_Carga9.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512211851269_Carga10.cs" />
+    <Compile Include="Migrations\201512211851269_Carga10.Designer.cs">
+      <DependentUpon>201512211851269_Carga10.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Views\CadastroDePedido.cs" />
     <Compile Include="Models\Data\GerenciadorDePedidosWebContext.cs" />
     <Compile Include="Models\Data\Pedido.cs" />
     <Compile Include="Models\Data\Usuario.cs" />
-    <Compile Include="Models\Cliente.cs" />
+    <Compile Include="Models\Data\Cliente.cs" />
+    <Compile Include="Models\Views\GraficoViewModel.cs" />
+    <Compile Include="Models\Views\PedidosViewModel.cs" />
+    <Compile Include="Models\Views\PedidoView.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -153,16 +254,49 @@
     <Content Include="Views\Pedidos\Details.cshtml" />
     <Content Include="Views\Pedidos\Edit.cshtml" />
     <Content Include="Views\Pedidos\Index.cshtml" />
-    <Content Include="Views\Usuarios\Index.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Login\Index.cshtml" />
+    <Content Include="Views\Login\login.cshtml" />
     <Content Include="Views\CadastroDeProduto\Index.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\CadastroDeProduto\Edit.cshtml" />
-    <Content Include="Views\Cliente\Index.cshtml" />
     <Content Include="Views\CadastroDePedidos\Index.cshtml" />
     <Content Include="Views\CadastroDePedidos\Produtos.cshtml" />
+    <Content Include="Views\VisualizaProdutos\Index.cshtml" />
+    <Content Include="Views\Usuarios\Index.cshtml" />
+    <Content Include="Views\Cliente\Index.cshtml" />
+    <Content Include="Views\Cliente\MostrarClientes.cshtml" />
+    <Content Include="Views\Cliente\Details.cshtml" />
+    <Content Include="Views\Cliente\BuscarPorNome.cshtml" />
+    <Content Include="Views\Cliente\Edit.cshtml" />
+    <Content Include="Views\PedidosView\Index.cshtml" />
+    <Content Include="Views\CadastroDeProduto\Erro.cshtml" />
+    <Content Include="Views\PedidosView\Detais.cshtml" />
+    <Content Include="scss\font-awesome.scss" />
+    <Content Include="scss\_animated.scss" />
+    <Content Include="scss\_bordered-pulled.scss" />
+    <Content Include="scss\_core.scss" />
+    <Content Include="scss\_fixed-width.scss" />
+    <Content Include="scss\_icons.scss" />
+    <Content Include="scss\_larger.scss" />
+    <Content Include="scss\_list.scss" />
+    <Content Include="scss\_mixins.scss" />
+    <Content Include="scss\_path.scss" />
+    <Content Include="scss\_rotated-flipped.scss" />
+    <Content Include="scss\_stacked.scss" />
+    <Content Include="scss\_variables.scss" />
+    <Content Include="Views\Cliente\BuscarPorCodigo.cshtml" />
+    <Content Include="Views\Cliente\BuscarPorNomeFantasia.cshtml" />
+    <Content Include="Views\Cliente\BuscarPorCnpj.cshtml" />
+    <Content Include="Views\ConfiguracaoDeUsuario\Index.cshtml" />
+    <Content Include="Views\ConfiguracaoDeUsuario\Configurar.cshtml" />
+    <Content Include="Views\Graficos\Index.cshtml" />
+    <Content Include="Views\Graficos\CalculaMes.cshtml" />
+    <Content Include="Views\PedidosView\Delete.cshtml" />
+    <Content Include="Views\PedidosFiltro\Index.cshtml" />
+    <Content Include="Views\PedidosFiltro\Filtrar.cshtml" />
+    <Content Include="Views\PedidosView\_PartialFiltro.cshtml" />
+    <Content Include="Views\Login\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -171,12 +305,56 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201508281518137_Carga.resx">
       <DependentUpon>201508281518137_Carga.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201510191750516_TabelaCliente.resx">
+      <DependentUpon>201510191750516_TabelaCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201511302017076_Carga1.resx">
+      <DependentUpon>201511302017076_Carga1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512011931377_Carga2.resx">
+      <DependentUpon>201512011931377_Carga2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512021026303_Carga3.resx">
+      <DependentUpon>201512021026303_Carga3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512021710152_Carga4.resx">
+      <DependentUpon>201512021710152_Carga4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512031402360_CargaPedido.resx">
+      <DependentUpon>201512031402360_CargaPedido.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512031530151_CargaPedido1.resx">
+      <DependentUpon>201512031530151_CargaPedido1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512041052555_CargaPedido2.resx">
+      <DependentUpon>201512041052555_CargaPedido2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512041107444_Carga5.resx">
+      <DependentUpon>201512041107444_Carga5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512141751017_Carga6.resx">
+      <DependentUpon>201512141751017_Carga6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512141752377_Carga7.resx">
+      <DependentUpon>201512141752377_Carga7.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512191218232_CargaUsuario.resx">
+      <DependentUpon>201512191218232_CargaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512201258119_Carga8.resx">
+      <DependentUpon>201512201258119_Carga8.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512201503022_Carga9.resx">
+      <DependentUpon>201512201503022_Carga9.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512211851269_Carga10.resx">
+      <DependentUpon>201512211851269_Carga10.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

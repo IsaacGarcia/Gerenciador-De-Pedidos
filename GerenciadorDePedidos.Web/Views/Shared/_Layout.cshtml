@@ -1,67 +1,75 @@
-﻿
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - Pratic System</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="~/Scripts/modernizr-2.6.2.js"></script>
     <script src="~/Scripts/jquery-1.10.2.min.js"></script>
     <script src="~/Scripts/jquery-1.10.2.intellisense.js"></script>
 </head>
+
 <body>
-    
-    <div class="container">
-
-        <nav class="navbar navbar-default">
-            <div class="container-fluid">
-                <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <a class="navbar-brand" href="#">Project name</a>
-                </div>
+    <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">Controle+</a>
             </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li class="active"><a href="/Home">Home</a></li>
-                    <li><a href="#">About</a></li>
-                    <li><a href="#">Contact</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Cadastros <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="/CadastroDeProduto">Produtos</a></li>
-                            <li><a href="/Cliente">Cliente</a></li>
-                            <li><a href="/CadastroDePedidos">Pedido</a></li>
-                            <li role="separator" class="divider"></li>
-                            <li class="dropdown-header">Nav header</li>
-                            <li><a href="/Usuarios">Usuario</a></li>
-                        </ul>
-                    </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="./">Default <span class="sr-only">(current)</span></a></li>
-                    <li><a href="../navbar-static-top/">Static top</a></li>
-                    <li><a href="../navbar-fixed-top/">Fixed top</a></li>
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
-        </nav>
-
-        <div class="container body-content">
-            
-        @RenderBody()
-
-            <footer>
-                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-            </footer>
         </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="/Home"><span class="glyphicon glyphicon-home" aria-hidden="true"></span> Home</a></li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Cadastrar<span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Usuarios"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Usuário</a></li>
+                        <li><a href="/Cliente"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Cliente</a></li>
+                        <li><a href="/CadastroDePedidos"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Pedido</a></li>
+
+                    </ul>
+                </li>
+
+                <li><a href="/CadastroDeProduto"><span class="glyphicon glyphicon-tint" aria-hidden="true"></span> Produtos</a></li>
+
+                <li><a href="/Cliente/MostrarClientes"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Clientes</a></li>
+
+                <li><a href="/PedidosView"><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Pedidos</a></li>
+               
+                <li><a href="/Graficos/CalculaMes"><span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Financeiro</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-user" aria-hidden="true"></span><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/Login"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Logout</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/ConfiguracaoDeUsuario"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Opções</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <!--/.nav-collapse -->
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()        
+        <footer>
+            <p></p>
+            <p></p>
+            <p></p>
+            <p></p>
+        </footer>
     </div>
-    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
 </body>
 </html>

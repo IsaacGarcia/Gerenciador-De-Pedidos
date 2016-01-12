@@ -1,0 +1,40 @@
+﻿@model GerenciadorDePedidos.Web.Models.Usuario
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h1>Confirmar Dados</h1>
+        <div class="well pull-center">
+            @using (Html.BeginForm("Configurar", "ConfiguracaoDeUsuario"))
+            {
+
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>  @Html.LabelFor(x => x.Login, "Usuário")
+                        @Html.TextBoxFor(x => x.Login, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                         <span class="glyphicon glyphicon-lock" aria-hidden="true"></span> @Html.LabelFor(x => x.Senha)
+                        @Html.PasswordFor(x => x.Senha, new { @class = "form-control" })
+                    </div>
+                </div>
+
+                <p></p>
+                <input type="submit" value="Submeter" class="btn btn-success" />
+ 
+            }
+        </div>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+

@@ -34,6 +34,9 @@ namespace GerenciadorDePedidos.Web.Controllers
                 return Redirect("/Home");
             }
         }
+
+        
+
         public ActionResult Index()
         {
             return View();

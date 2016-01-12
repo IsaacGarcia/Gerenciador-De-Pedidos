@@ -1,0 +1,95 @@
+﻿@model GerenciadorDePedidos.Web.Models.Views.PedidosViewModel
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2><span class="glyphicon glyphicon-filter" aria-hidden="true"></span> Filtrar Pedidos</h2>
+<hr />
+@using (Html.BeginForm("Filtrar", "PedidosFiltro"))
+{
+    
+    <div class="row">
+        <div class="col-md-3">
+            <h4>De:</h4>
+            <div class="well">
+                <div class="row">
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(x => x.diaMaximo, new { @class = "form-control", placeholder = "Dia" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(x => x.mesMinimo, new { @class = "form-control", placeholder = "Mês" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(x => x.anoMinimo, new { @class = "form-control", placeholder = "Ano" })
+                    </div>
+                </div>
+            </div>
+            <!-- well -->
+        </div>
+
+        <div class="col-md-3">
+            <h4>Até:</h4>
+            <div class="well">
+                <div class="row">
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(x => x.diaMaximo, new { @class = "form-control", placeholder = "Dia" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(x => x.mesMaximo, new { @class = "form-control", placeholder = "Mês" })
+                    </div>
+                    <div class="col-md-4">
+                        @Html.TextBoxFor(x => x.anoMaximo, new { @class = "form-control", placeholder = "Ano" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <h4>Valor Mínimo: </h4>
+            <div class="well">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">R$</span>@Html.TextBoxFor(x => x.valorMinimo, new { @class = "form-control", @placeholder = "Mín" })<span class="input-group-addon">.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <h4>Valor Máximo:</h4>
+            <div class="well">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="input-group">
+                            <span class="input-group-addon">R$</span>@Html.TextBoxFor(x => x.valorMaximo, new { @class = "form-control", placeholder = "Máx" })<span class="input-group-addon">.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div class="well">
+                <div class="row">
+                    <div class="col-md-12">
+                        <label><b>Cliente</b></label>
+                        @Html.TextBoxFor(x => x.cpfCliente, new { @class = "form-control", placeholder = "CPF/CNPJ" })
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <input type="submit" value="Filtrar" class="btn btn-success" />
+        </div>
+    </div>
+
+}
+
+</div>
+<hr />

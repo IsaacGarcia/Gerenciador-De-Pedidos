@@ -1,0 +1,31 @@
+﻿@model GerenciadorDePedidos.Web.Models.Produto
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Todos os produtos</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Valor</th>
+            <th>Descrição</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (GerenciadorDePedidos.Web.Models.Produto item in ViewBag.Produtos)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Nome</td>
+                <td>@item.Valorunitario</td>
+                <td>@item.Descricao</td>
+            </tr>
+                      
+        }
+
+    </tbody>
+</table>
+

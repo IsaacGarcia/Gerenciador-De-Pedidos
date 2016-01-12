@@ -5,45 +5,154 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Cadastro de Clientes</h2>
+<h2><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Cadastro de clientes</h2>
+<div id="atencao" hidden="hidden" class="alert alert-warning" role="alert">
+    <b>Atenção!</b><br />
+    Alguns campos obrigatórios não foram preenchidos.
+</div>
+<hr />
+<p></p>
 
-<h4>Dados da Empresa:</h4>
 
-@using (Html.BeginForm("Cadastrar", "Cliente", FormMethod.Post))
+@using (Html.BeginForm("Cadastrar", "Cliente"))
 {
-    @Html.LabelFor(x => x.RazaoSocial, "Razão Social: ")
-    @Html.TextBoxFor(x => x.RazaoSocial)
+    <div class="form-group">
+
+        @Html.LabelFor(x => x.TipoPessoa, " Pessoa Fisica")
+        @Html.RadioButtonFor(x => x.TipoPessoa, GerenciadorDePedidos.Web.Models.TipoPessoa.Fisica, new { @id = "idfisica" })
+
+        @Html.LabelFor(x => x.TipoPessoa, "Pessoa Juridica")
+        @Html.RadioButtonFor(x => x.TipoPessoa, GerenciadorDePedidos.Web.Models.TipoPessoa.Juridica, new { @id = "idjuridica" })
+
+    </div>
     
-    @Html.LabelFor(x => x.Cnpj, "Numero do CNPJ: ")
-    @Html.TextBoxFor(x => x.Cnpj)
-
-    @Html.LabelFor(x => x.NomeFantasia, "Nome Fantasia: ")
-    @Html.TextBoxFor(x => x.NomeFantasia)
-
-    @Html.LabelFor(x => x.Email, "Email: ")
-    @Html.TextBoxFor(x => x.Email)
-
-    @Html.LabelFor(x => x.Telefone, "Telefone: ")
-    @Html.TextBoxFor(x => x.Telefone)
-
-    <h4>Endereço:</h4>
+    <hr />
     
-    @Html.LabelFor(x => x.EnderecoCliente.Rua, "Rua: ")
-    @Html.TextBoxFor(x => x.EnderecoCliente.Rua)
+    <div id="fisica" class="row" hidden="hidden">
 
-    @Html.LabelFor(x => x.EnderecoCliente.Bairro, "Bairro: ")
-    @Html.TextBoxFor(x => x.EnderecoCliente.Bairro)
+        <div class="col-md-12">
+            @Html.LabelFor(x => x.Nome)*
+            @Html.TextBoxFor(x => x.Nome, new { @class = "form-control", id = "nome" })
+            @Html.LabelFor(x => x.Sobrenome)*
+            @Html.TextBoxFor(x => x.Sobrenome, new { @class = "form-control", id = "sobrenome" })
+            @Html.LabelFor(x => x.Cpf)*
+            @Html.TextBoxFor(x => x.Cpf, new { @class = "form-control", @placeholder = "999.999.999-99", id = "cpf" })
+        </div>
 
-    @Html.LabelFor(x => x.EnderecoCliente.Cidade, "Cidade: ")
-    @Html.TextBoxFor(x => x.EnderecoCliente.Cidade)
-
-    @Html.LabelFor(x => x.EnderecoCliente.Estado, "Estado: ")
-    @Html.TextBoxFor(x => x.EnderecoCliente.Estado)
-
-    @Html.LabelFor(x => x.EnderecoCliente.Cep, "CEP: ")
-    @Html.TextBoxFor(x => x.EnderecoCliente.Cep)
+    </div>    
     
-    <input type="submit" value="Cadastrar" />            
+    <div id="juridica" class="row" hidden="hidden">   
+
+
+        <div class="col-md-12">
+            @Html.LabelFor(x => x.NomeFantasia, "Nome Fantasia")
+            @Html.TextBoxFor(x => x.NomeFantasia, new { @class = "form-control" })
+            @Html.LabelFor(x => x.RazaoSocial, "Razão Social")
+            @Html.TextBoxFor(x => x.RazaoSocial, new { @class = "form-control", id = "razaosocial" })
+            @Html.LabelFor(x => x.Cnpj)*
+            @Html.TextBoxFor(x => x.Cnpj, new { @class = "form-control", @placeholder = "99.999.999/9999-99", id = "cnpj" })
+        </div>
+
+    </div>
+    
+    <div class="row" id="tel" hidden="hidden">
+        <div class="col-md-6">
+            @Html.LabelFor(x => x.Telefone)
+            @Html.TextBoxFor(x => x.Telefone, new { @class = "form-control", @placeholder = "(99)99999-9999", id = "telefone" })
+        </div>
+        <div class="col-md-6">
+            @Html.LabelFor(x => x.Email)
+            @Html.TextBoxFor(x => x.Email, new { @class = "form-control", @placeholder = "exemplo@email.com", id = "email" })
+        </div>
+    </div>
+    
+    <div id="endereco" class="row" hidden="hidden">
+        <div class="col-md-7">
+            @Html.LabelFor(x => x.EnderecoCliente.Bairro)
+            @Html.TextBoxFor(x => x.EnderecoCliente.Bairro, new { @class = "form-control" })
+        </div>
+        <div class="col-md-5">
+            @Html.LabelFor(x => x.EnderecoCliente.Cep)
+            @Html.TextBoxFor(x => x.EnderecoCliente.Cep, new { @class = "form-control" })
+        </div>
+        <div class="col-md-4">
+            @Html.LabelFor(x => x.EnderecoCliente.Cidade)
+            @Html.TextBoxFor(x => x.EnderecoCliente.Cidade, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-1">
+            @Html.LabelFor(x => x.EnderecoCliente.Estado)
+            @Html.TextBoxFor(x => x.EnderecoCliente.Estado, new { @class = "form-control" })
+        </div>
+
+        <div class="col-md-7">
+            @Html.LabelFor(x => x.EnderecoCliente.Complemento)
+            @Html.TextBoxFor(x => x.EnderecoCliente.Complemento, new { @class = "form-control" })
+        </div>
+    </div>
+    
+    <p></p>
+    
+    <div id="salvar" class="col-md-1">
+        <input type="submit" class="btn btn-success" value="Salvar" />
+    </div>
 
 }
 
+<input type="button" id="teste" class="btn btn-default" value="Verificar" />
+
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+
+
+        $('#idfisica').on('click', function () {
+            $('#juridica').hide();
+            $('#fisica').show('slow');
+            $('#endereco').show('slow');
+            $('#tel').show('slow');
+
+            //$('#teste').on('click', function () {
+
+            //    var nome = $('#nome').val();
+
+            //    var sobrenome = $('#sobrenome').val();
+
+            //    var cpf = $('#cpf').val();
+
+            //    if ((nome == "") || (sobrenome == "") || (cpf == "")) {
+            //        $('#atencao').show('slow');
+            //    }
+            //    else {
+            //        $('#salvar').show('slow');
+            //        $('#atencao').hide('slow');
+            //    }
+
+
+            //});
+
+        });
+        $('#idjuridica').on('click', function () {
+            $('#juridica').show('slow');
+            $('#fisica').hide();
+            $('#endereco').show('slow');
+            $('#tel').show('slow');
+
+            //$('#teste').on('click', function () {
+
+            //    var nomefantasia = $('#nomefantasia').val();
+
+            //    var cnpj = $('#cnpj').val();
+
+            //    if ((nomefantasia == "") || (cnpj == "")) {
+            //        $('#atencao').show('slow');
+            //    }
+            //    else {
+            //        $('#salvar').show('slow');
+            //        $('#atencao').hide('slow');
+
+            //    }
+            //});
+        });
+    });
+</script>

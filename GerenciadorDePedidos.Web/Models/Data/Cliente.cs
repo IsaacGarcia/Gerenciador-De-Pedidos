@@ -5,9 +5,19 @@ using System.Web;
 
 namespace GerenciadorDePedidos.Web.Models
 {
+    public enum TipoPessoa
+    {
+        Fisica, Juridica
+    }
+    
+    
     public class Cliente
     {
         public int Id { get; set; }
+        public TipoPessoa TipoPessoa { get; set; }
+        public string Nome { get; set; }
+        public string Sobrenome { get; set; }
+        public string Cpf { get; set; }
         public EnderecoCliente EnderecoCliente { get; set; }
         public string Cnpj { get; set; }
         public string RazaoSocial { get; set; }

@@ -2,72 +2,381 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Cadastro de Pedidos</h2>
-@using (Html.BeginForm("Adicionar", "CadastroDePedidos"))
-{
-    <div class="row">
-        <div class="span4">
-            @Html.Label("Produtos")
-            @Html.DropDownList("produto", new SelectList(ViewBag.Produtos, "Id", "Nome"), "Selecione")
-        </div>
-        <div class="span4">
-            @Html.Label("Quantidade")
-            @Html.TextBox("quantidade")
-        </div>
-        <div class="span4">
-            @Html.Label("Total")
-            @Html.TextBox("Total")
-        </div>
+<h2><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Cadastro de Pedidos</h2>
+<hr />
+<form class="form-inline">
+    @using (Html.BeginForm("Adicionar", "CadastroDePedidos"))
+    {
+        
+        <div class="form-group">
+            <div class="span4">
+                <label>Produto</label>
+                <select id="selectProduto" class="form-control">
+                    @foreach (GerenciadorDePedidos.Web.Models.Produto Produtos in ViewBag.Produtos)
+                    {
+                        <option id="@Produtos.Id" value="@Produtos.Id">@Produtos.Nome</option>
+              
+                    }
+                </select>
 
+            </div>
+            <p></p>
+            <div class="span4">
+                <label>Quantidade</label>
+                <input id="txtQuantidade" type="text" class="form-control" placeholder="0">
+            </div>
+            
+            <p></p>
+            <div class="span4">
+                <h3>
+                    <label>Total: R$ </label>
+                    <label id="Total">0</label>
+                </h3>
+            </div>
+            <p></p>
+            <div>
+                <button id="Add" type="button" class="btn btn-primary" aria-label="Left Align">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Adicionar
+                </button>
+            </div>
 
-        <input type="submit" value="Salvar" />
-    </div>
+        </div>
 
         
-}
+    }
+</form>
+
+<p></p>
+<div class="panel panel-primary">
+    <div class="panel-heading"><b>Pedido em Andamento</b></div>
+
+    <div class="panel-body">
+
+        <label id="idDoPedido" hidden="hidden">0</label>
+        <div class="row">
+            <div class="col-md-4">
+                <label>Nome</label>
+                <div id="divNomeId" hidden="hidden">
+                </div>
+                <div id="divProcurarId" class="input-group">
+                    <input type="text" id="txtProcurar" class="form-control" placeholder="Procurar por CPF/CNPJ">
+                    <span class="input-group-btn">
+                        <button id="btnProcurar" class="btn btn-default" type="button">Procurar</button>
+                    </span>
+                </div>
+
+            </div>
+
+            <div class="col-md-1">
+                <label>Dia</label>
+                <select id="diaId" class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                </select>
+            </div>
+            <div class="col-md-1">
+                <label>Mes</label>
+                <select id="mesId" class="form-control">
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label>Ano</label>
+                <select id="anoId" class="form-control">
+                    <option>2015</option>
+                    <option>2016</option>
+                    <option>2017</option>
+                    <option>2018</option>
+                    <option>2019</option>
+                    <option>2020</option>
+                    <option>2021</option>
+                    <option>2022</option>
+                    <option>2023</option>
+                    <option>2024</option>
+                    <option>2025</option>
+                    <option>2026</option>
+                    <option>2027</option>
+                    <option>2028</option>
+                </select>
+            </div>
+            <label>Descrição</label>
+
+            <div class="col-md-4">
+                <input type="text" id="descricaoId" class="form-control" />
+            </div>
+        </div>
+
+        <p></p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Produto</th>
+                    <th>Quantidade</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody id="table">
+            </tbody>
+        </table>
+
+
+    </div>
+</div>
+
+<p>
+</p>
+
+<div id="antesId" hidden="hidden">
+    <input type="submit" id="salvar" value="Salvar" class="btn btn-success" />
+
+    <input type="button" id="Cancelar" value="Cancelar" class="btn btn-danger" />
+
+</div>
+
+
+<div id="depoisId" hidden="hidden">
+    <div class="alert alert-success" role="alert">
+        <a href="/CadastroDePedidos/NovoPedido" class="alert-link">Salvo! Novo Pedido</a>
+        <a href="/Home/Index" class="alert-link">ou Home</a>
+    </div>
+</div>
+
+<div id="cancelarId" hidden="hidden">
+    <div class="alert alert-danger" role="alert">
+        <a href="/CadastroDePedidos/NovoPedido" class="alert-link">Cancelado! Novo Pedido</a>
+        <a href="/Home/Index" class="alert-link">ou Home</a>
+    </div>
+</div>
+
+
+
+
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
 <script type="text/javascript">
+    $(document).ready(function () {
 
-    
+        $('#idDoPedido').hide();
 
+        //---------------------------------------------------------
+        //  CALCULR TOTAL DO ITEM
+        //---------------------------------------------------------
 
-    $(document).ready(function ()
-    {
-        $('#quantidade').change(function () {
-            var idDoProduto = $("#produto").val();
-
-
+        function alterarTotal(idDoProduto) {
             $.getJSON("/CadastroDePedidos/ObterProdutoPeloId?id=" + idDoProduto)
-                .done(function( json ) {
-   
-                   // alert(JSON.stringify(json));
+.done(function (json) {
 
-                    var total = parseFloat(json.Valorunitario) * parseFloat($("#quantidade").val());
+    var valor = parseFloat(json.Valorunitario);
 
-                    $("#Total").val(total);
-                })
+    var quantidade = $("#txtQuantidade").val();
+
+    var total = valor * quantidade;
+
+    $('#Total').html('<label id="lbltotal" value="' + total + '">' + total + ',00</label>');
+
+});
+        }
+
+        $('#txtQuantidade').change(function () {
+
+            var idDoProduto = $('#selectProduto').val();
+
+            alterarTotal(idDoProduto);
+
+
+        });
+
+
+        $('#selectProduto').change(function () {
+
+            var idDoProduto = $(this).val();
+
+            alterarTotal(idDoProduto);
+
+
+
+        });
+
+        //---------------------------------------------------------
+        //  Adiciona um item no pedido
+        //---------------------------------------------------------
+
+        $('#Add').on('click', function () {
+
+            var idDoProduto = $('#selectProduto').val();
+
+            var Quantidade = $('#txtQuantidade').val();
+
+            var idDoPedido = $('#idDoPedido').html();
+
+            var url = "@Url.Action("Adicionar", "CadastroDePedidos")";
+            var params = { id: idDoProduto, quantidade: Quantidade, Pedido: idDoPedido };
+            $.post(url, params, atualiza);
+
+            function atualiza(resposta) {
+
+                var elemento = (resposta.Id);
+
+                var idDoPedido = (resposta.IdDoPedido);
+
+                $.getJSON("/CadastroDePedidos/ObterProdutoPeloId?id=" + idDoProduto)
+.done(function (json) {
+
+    var nome = json.Nome;
+
+    var valor = parseFloat(json.Valorunitario);
+
+    var quantidade = $("#txtQuantidade").val();
+
+    var total = valor * quantidade
+
+    $('#idDoPedido').html(idDoPedido);
+
+    $('#table').append('<tr id="' + elemento + '"><td>' + elemento + '</td><td>' + nome + '</td><td>' + quantidade + '</td><td>' + total + '</td></tr>');
+
+});
+
+            }
+
+
+
+        });
+
+        //---------------------------------------------------------
+        //  PROCURAR POR CPF ou CNPJ
+        //--------------------------------------------------------
+
+        $('#btnProcurar').on('click', function () {
+
+            var codigo = $('#txtProcurar').val();
+
+
+            var url = "@Url.Action("BuscarCliente", "CadastroDePedidos")";
+            var params = { Codigo: codigo };
+            $.post(url, params, atualiza);
+
+            function atualiza(resposta) {
+
+                if (resposta.Nome == "Não Encontrado") {
+
+                    alert("Nenhum cliente encontrado!");
+
+                }
+                else {
+
+                    var nome = (resposta.Nome);
+
+                    var empresa = (resposta.NomeFantasia);
+
+                    var sobrenome = (resposta.Sobrenome);
+
+                    var clienteId = (resposta.Id);
+
+                    $('#divNomeId').show().append(' <label type="text" id="' + clienteId + '" class="form-control numero">' + empresa + nome + ' ' + sobrenome + '</label>');
+
+                    $('#divProcurarId').hide();
+
+                    $('#antesId').show('slow');
+                }
+            }
+
+        });
+
+
+        //---------------------------------------------------------
+        //  CANCELAR
+        //---------------------------------------------------------
+
+
+        $('#Cancelar').on('click', function () {
+
+            var idDoPedido = $('#idDoPedido').html();
+
+            var url = "@Url.Action("DeletarPedido", "CadastroDePedidos")";
+            var params = { IdDoPedido: idDoPedido };
+            $.post(url, params);
+
+            $('#cancelarId').show('slow');
+
+            $('#antesId').hide('slow');
+
+        });
+
+
+        //---------------------------------------------------------
+        //  SALVAR
+        //---------------------------------------------------------
+
+        $('#salvar').on('click', function () {
+
+            $('#depoisId').show('slow');
+
+            $('#antesId').hide('slow');
+
+            var clienteId = $('.numero').prop('id');
+
+            var dia = $('#diaId').val();
+
+            var mes = $('#mesId').val();
+
+            var ano = $('#anoId').val();
+
+            var descricao = $('#descricaoId').val();
+
+            var idDoPedido = $('#idDoPedido').html();
+
+            var url = "@Url.Action("SalvarPedido", "CadastroDePedidos")";
+            var params = { Dia: dia, Mes: mes, Ano: ano, Descricao: descricao, PedidoId: idDoPedido, ClienteId: clienteId };
+            $.post(url, params, atualiza);
+
+            function atualiza(resposta) {
+
+
+            }
+
         });
 
     });
 
-    
-        //$.ajax({
-        //    url: "/CadatroDePedidos/ObterProdutoPeloId?id=" + idDoProduto,
-        //    type: "GET",
-        //    dataType: "json",
-        //    contentType: "application/json; charset=utf-8",
-        //    error: function (data)
-        //    {
-        //        alert(data.Id);
-        //    }
-        //});
-            
-    
-        
-    
-
-
-
-
-
-
 </script>
+

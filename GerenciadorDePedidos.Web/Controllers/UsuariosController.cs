@@ -25,7 +25,7 @@ namespace GerenciadorDePedidos.Web.Controllers
             db.Usuarios.Add(usuario);
             db.SaveChanges();
 
-            return View("Index");
+            return Redirect("/Usuarios");
         }
         //
         // GET: /Usuarios/

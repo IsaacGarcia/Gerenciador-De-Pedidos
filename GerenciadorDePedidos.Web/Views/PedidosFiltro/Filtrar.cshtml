@@ -1,0 +1,47 @@
+﻿@model GerenciadorDePedidos.Web.Models.Pedido
+
+@{
+    ViewBag.Title = "Filtrar";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Filtrar</h2>
+
+<h1><span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span> Pedidos</h1>
+<hr />
+<table class="table table-striped table-hover table-condensed table-bordered">
+    <thead>
+        <tr>
+            <th>Nº do Pedido</th>
+            <th>Cliente</th>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Total</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (GerenciadorDePedidos.Web.Models.Pedido Pedidos in this.ViewBag.Pedidos)
+        {
+            <tr>
+                <td>@Pedidos.Id</td>
+                <td>
+                    @foreach (GerenciadorDePedidos.Web.Models.Cliente Clientes in ViewBag.Clientes)
+                    {
+                        if (Clientes == Pedidos.Cliente)
+                        {
+                        @Clientes.Nome<span> </span>@Clientes.Sobrenome @Clientes.NomeFantasia
+                        }
+                    }
+                </td>
+                <td>@Pedidos.Dia/@Pedidos.Mes/@Pedidos.Ano</td>
+                <td>@Pedidos.Descricao</td>
+                <td>R$@Pedidos.Valortotal,00</td>
+                <td><a href="@Url.Action("Detais", new { pedidoId = @Pedidos.Id })"  class="btn btn-info"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></a>
+                    <a href="@Url.Action("Delete", new { id = @Pedidos.Id })"  class="btn btn-danger"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

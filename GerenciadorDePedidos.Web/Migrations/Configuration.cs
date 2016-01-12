@@ -28,10 +28,6 @@ namespace GerenciadorDePedidos.Web.Migrations
             //    );
             //
 
-            context.Usuarios.Add(new Usuario { Login = "admin", Senha = "admin", Nome = "fulano", Sexo = Sexo.Masculino });
-
-            context.Produtoes.Add(new Produto { Nome = "Detergente", Valorunitario = 200, Descricao = "Produto Bom" });
-
         }
     }
 }

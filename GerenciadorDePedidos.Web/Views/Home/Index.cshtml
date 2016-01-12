@@ -1,7 +1,43 @@
-﻿
-@{
+﻿@{
     ViewBag.Title = "Index";
 }
 
-<h2>Home</h2>
 
+<div id="page-content-wrapper">
+    <div class="jumbotron">
+        <h1 class="text-center">Bem Vindo!</h1>
+        <br />
+        <div class="row">
+            <div class="col-md-4">
+                <h1><span class="glyphicon glyphicon-usd" aria-hidden="true"></span></h1>
+                <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla id felis sit amet mi aliquet bibendum ut ac nulla.</h3>
+            </div>
+            <div class="col-md-4">
+                <h1><span class="glyphicon glyphicon-send" aria-hidden="true"></span></h1>
+                <h3>Nulla facilisi. Etiam eleifend aliquet dui, non consequat enim ultrices ut.</h3>
+            </div>
+            <div class="col-md-4">
+                <h1><span class="glyphicon glyphicon-phone" aria-hidden="true"></span></h1>
+                <h3>Nam nec massa lobortis, condimentum enim quis, bibendum magna.</h3>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<script type="text/javascript" src="~/Scripts/jquery-1.10.2.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.btn-primary').on('click', function () {
+            $(this).hide('slow');
+            $('#btns').show('slow');
+
+
+        });
+    });
+
+
+</script>
